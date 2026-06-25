@@ -1,5 +1,6 @@
 package com.example.apprecetas.ui.navigation
 
+import android.content.Intent
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -10,12 +11,16 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Timer
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.apprecetas.TimersActivity
 import com.example.apprecetas.ui.home.HomeScreen
 import com.example.apprecetas.ui.placeholder.PlaceholderScreen
 import com.example.apprecetas.ui.theme.PurpleAccent
@@ -37,7 +42,6 @@ fun AppRoot() {
             composable(AppDestination.HOME.route) { HomeScreen() }
             composable(AppDestination.INGREDIENTES.route) { PlaceholderScreen("Ingredientes") }
             composable(AppDestination.RECETAS.route) { PlaceholderScreen("Recetas") }
-            composable(AppDestination.TIMERS.route) { PlaceholderScreen("Timers") }
         }
     }
 }
@@ -46,6 +50,7 @@ fun AppRoot() {
 private fun AppBottomBar(navController: NavHostController) {
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = backStackEntry?.destination?.route
+    val context = LocalContext.current
 
     NavigationBar(containerColor = SurfaceDark) {
         AppDestination.entries.forEach { destination ->
@@ -79,5 +84,25 @@ private fun AppBottomBar(navController: NavHostController) {
                 )
             )
         }
+
+        NavigationBarItem(
+            selected = false,
+            onClick = {
+                val intent = Intent(context, TimersActivity::class.java)
+                context.startActivity(intent)
+            },
+            icon = {
+                Icon(
+                    imageVector = Icons.Outlined.Timer,
+                    contentDescription = "Timers"
+                )
+            },
+            label = { Text("Timers") },
+            colors = NavigationBarItemDefaults.colors(
+                unselectedIconColor = TextSecondary,
+                unselectedTextColor = TextSecondary,
+                indicatorColor = SurfaceDark
+            )
+        )
     }
 }
