@@ -1,6 +1,7 @@
 package com.example.apprecetas.data
 
 import com.example.apprecetas.model.Ingredient
+import com.example.apprecetas.model.PantryItem
 import com.example.apprecetas.model.Recipe
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
@@ -42,6 +43,7 @@ class RecetasRepository(
     private val ingredientsRef = firestore.collection("ingredients")
     private val recipesRef = firestore.collection("recipes")
     private val usersRef = firestore.collection("users")
+    private val pantryRef = firestore.collection("pantry")
 
     suspend fun seedCatalogIfEmpty() {
         if (ingredientsRef.get().await().isEmpty) {
@@ -95,5 +97,43 @@ class RecetasRepository(
         usersRef.document(userId)
             .set(mapOf("selectedIngredients" to names.toList()), SetOptions.merge())
             .await()
+    }
+
+    fun observePantry(): Flow<List<PantryItem>> = callbackFlow {
+        val registration = pantryRef.addSnapshotListener { snapshot, error ->
+            if (error != null) {
+                close(error)
+                return@addSnapshotListener
+            }
+            val items = snapshot?.documents?.mapNotNull { doc ->
+                doc.toObject(PantryItem::class.java)?.copy(id = doc.id)
+            } ?: emptyList()
+            trySend(items)
+        }
+        awaitClose { registration.remove() }
+    }
+
+    suspend fun addPantryItem(item: PantryItem) {
+        val data = mapOf(
+            "name" to item.name,
+            "emoji" to item.emoji,
+            "category" to item.category,
+            "quantity" to item.quantity
+        )
+        pantryRef.add(data).await()
+    }
+
+    suspend fun deletePantryItem(id: String) {
+        pantryRef.document(id).delete().await()
+    }
+
+    suspend fun updatePantryItem(item: PantryItem) {
+        val data = mapOf(
+            "name" to item.name,
+            "emoji" to item.emoji,
+            "category" to item.category,
+            "quantity" to item.quantity
+        )
+        pantryRef.document(item.id).set(data).await()
     }
 }
