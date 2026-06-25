@@ -27,6 +27,13 @@
 
         </activity>
         <activity android:name=".TimersActivity" android:exported="false" />
+        <activity
+            android:name=".IngredientsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.AppRecetas.Ingredients" />
+        <activity
+            android:name=".RecetasActivity"
+            android:exported="false" />
     </application>
 
 </manifest>
