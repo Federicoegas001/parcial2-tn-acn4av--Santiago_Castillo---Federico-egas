@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tvCategoryHeader"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:letterSpacing="0.1"
+    android:paddingStart="@dimen/ing_spacing_md"
+    android:paddingEnd="@dimen/ing_spacing_md"
+    android:paddingTop="@dimen/ing_spacing_md"
+    android:paddingBottom="@dimen/ing_spacing_xs"
+    android:textColor="@color/ing_text_secondary"
+    android:textSize="@dimen/ing_caption_size"
+    android:textStyle="bold" />

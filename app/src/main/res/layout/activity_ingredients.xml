@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ing_bg">
+
+    <!-- Botón volver -->
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginStart="@dimen/ing_spacing_md"
+        android:layout_marginTop="72dp"
+        android:backgroundTint="@color/ing_surface_variant"
+        android:text="@string/ing_btn_back"
+        android:textColor="@color/ing_text_primary"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Fila header: título + subtítulo | botón agregar -->
+    <LinearLayout
+        android:id="@+id/headerRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/ing_spacing_md"
+        android:layout_marginEnd="@dimen/ing_spacing_md"
+        android:layout_marginTop="@dimen/ing_spacing_sm"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBack">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ing_title"
+                android:textColor="@color/ing_text_primary"
+                android:textSize="@dimen/ing_title_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvSubtitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0 productos en despensa"
+                android:textColor="@color/ing_text_secondary"
+                android:textSize="@dimen/ing_subtitle_size" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnAgregar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/ing_purple"
+            android:text="@string/ing_btn_add"
+            android:textColor="@color/ing_text_primary"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Barra de búsqueda -->
+    <EditText
+        android:id="@+id/etSearch"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/ing_search_height"
+        android:layout_marginStart="@dimen/ing_spacing_md"
+        android:layout_marginEnd="@dimen/ing_spacing_md"
+        android:layout_marginTop="@dimen/ing_spacing_md"
+        android:background="@drawable/bg_search_field"
+        android:hint="@string/ing_search_hint"
+        android:imeOptions="actionSearch"
+        android:inputType="text"
+        android:paddingStart="@dimen/ing_spacing_md"
+        android:paddingEnd="@dimen/ing_spacing_md"
+        android:textColor="@color/ing_text_primary"
+        android:textColorHint="@color/ing_text_secondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerRow" />
+
+    <!-- Chips de filtro -->
+    <HorizontalScrollView
+        android:id="@+id/chipsScroll"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ing_spacing_sm"
+        android:scrollbars="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etSearch">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/ing_spacing_md"
+            android:paddingEnd="@dimen/ing_spacing_md"
+            app:selectionRequired="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipTodos"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/ing_filter_all"
+                android:textColor="@color/chip_text_selector"
+                app:checkedIconVisible="false"
+                app:chipBackgroundColor="@color/chip_background_selector"
+                app:chipIconVisible="false"
+                app:chipStrokeColor="@color/chip_text_selector"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipLacteos"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ing_filter_dairy"
+                android:textColor="@color/chip_text_selector"
+                app:checkedIconVisible="false"
+                app:chipBackgroundColor="@color/chip_background_selector"
+                app:chipIconVisible="false"
+                app:chipStrokeColor="@color/chip_text_selector"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipVerduras"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ing_filter_veggies"
+                android:textColor="@color/chip_text_selector"
+                app:checkedIconVisible="false"
+                app:chipBackgroundColor="@color/chip_background_selector"
+                app:chipIconVisible="false"
+                app:chipStrokeColor="@color/chip_text_selector"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipCarnes"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ing_filter_meats"
+                android:textColor="@color/chip_text_selector"
+                app:checkedIconVisible="false"
+                app:chipBackgroundColor="@color/chip_background_selector"
+                app:chipIconVisible="false"
+                app:chipStrokeColor="@color/chip_text_selector"
+                app:chipStrokeWidth="1dp" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipProteinas"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ing_filter_proteins"
+                android:textColor="@color/chip_text_selector"
+                app:checkedIconVisible="false"
+                app:chipBackgroundColor="@color/chip_background_selector"
+                app:chipIconVisible="false"
+                app:chipStrokeColor="@color/chip_text_selector"
+                app:chipStrokeWidth="1dp" />
+        </com.google.android.material.chip.ChipGroup>
+    </HorizontalScrollView>
+
+    <!-- Fila de estadísticas -->
+    <LinearLayout
+        android:id="@+id/statsRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/ing_spacing_md"
+        android:layout_marginEnd="@dimen/ing_spacing_md"
+        android:layout_marginTop="@dimen/ing_spacing_sm"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chipsScroll">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/ing_spacing_xs"
+            android:layout_weight="1"
+            android:background="@drawable/bg_stats_card"
+            android:orientation="vertical"
+            android:padding="@dimen/ing_spacing_md">
+
+            <TextView
+                android:id="@+id/tvTotalCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/ing_text_primary"
+                android:textSize="@dimen/ing_stat_number_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ing_stat_total"
+                android:textColor="@color/ing_text_secondary"
+                android:textSize="@dimen/ing_caption_size" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/ing_spacing_xs"
+            android:layout_weight="1"
+            android:background="@drawable/bg_stats_card"
+            android:orientation="vertical"
+            android:padding="@dimen/ing_spacing_md">
+
+            <TextView
+                android:id="@+id/tvLowStockCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textColor="@color/ing_low_stock"
+                android:textSize="@dimen/ing_stat_number_size"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/ing_stat_low"
+                android:textColor="@color/ing_text_secondary"
+                android:textSize="@dimen/ing_caption_size" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Lista de ingredientes -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvIngredients"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/ing_spacing_sm"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/ing_spacing_md"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/statsRow" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
