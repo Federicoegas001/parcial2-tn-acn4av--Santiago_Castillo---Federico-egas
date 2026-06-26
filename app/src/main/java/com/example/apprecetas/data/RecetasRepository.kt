@@ -37,6 +37,7 @@ private val DEFAULT_RECIPES = listOf(
     )
 )
 
+// Declaramos explícitamente la clase para que Android la reconozca
 class RecetasRepository(
     private val firestore: FirebaseFirestore = FirebaseFirestore.getInstance()
 ) {
