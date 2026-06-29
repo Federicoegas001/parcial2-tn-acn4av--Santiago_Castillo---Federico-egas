@@ -21,27 +21,11 @@ class DetalleRecetaActivity : AppCompatActivity() {
 
         val recetaNombre = intent.getStringExtra("RECIPE_NAME") ?: "Receta"
         val recetaEmoji = intent.getStringExtra("RECIPE_EMOJI") ?: "🍽️"
+        val recetaInstructions = intent.getStringExtra("RECIPE_INSTRUCTIONS") ?: ""
 
         tvTitle.text = recetaNombre
         tvEmoji.text = recetaEmoji
-
-
-        tvInstructions.text = when (recetaNombre) {
-            "Tortilla de tomate y queso" -> {
-                "1. Batir los huevos en un bol con una pizca de sal.\n\n" +
-                        "2. Cortar el tomate en rodajas finas o cubos pequeños.\n\n" +
-                        "3. Calentar una sartén con un chorrito de aceite de oliva y dorar el tomate por 2 minutos.\n\n" +
-                        "4. Verter los huevos batidos y sumar el queso en hebras por encima.\n\n" +
-                        "5. Cocinar a fuego lento durante 5 minutos, dar vuelta con cuidado y dejar gratinar el queso."
-            }
-            "Huevos revueltos gratinados" -> {
-                "1. Romper los huevos directamente sobre una sartén fría con un cubo de manteca o aceite.\n\n" +
-                        "2. Llevar a fuego medio y revolver constantemente con espátula.\n\n" +
-                        "3. Retirar del fuego intermitentemente para que queden bien cremosos.\n\n" +
-                        "4. En el último minuto, espolvorear el queso y tapar la sartén para que se derrita por completo."
-            }
-            else -> "Pasos preliminares:\nPrecalentar utensilios, reunir ingredientes seleccionados y cocinar al gusto controlando los minutos."
-        }
+        tvInstructions.text = recetaInstructions
 
 
         btnBack.setOnClickListener { finish() }

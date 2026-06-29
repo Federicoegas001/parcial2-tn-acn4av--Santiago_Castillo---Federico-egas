@@ -58,14 +58,6 @@
                 android:textSize="@dimen/ing_subtitle_size" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnAgregar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/ing_purple"
-            android:text="@string/ing_btn_add"
-            android:textColor="@color/ing_text_primary"
-            android:textSize="14sp" />
     </LinearLayout>
 
     <!-- Barra de búsqueda -->

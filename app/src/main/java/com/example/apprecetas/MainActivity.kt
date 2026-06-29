@@ -4,7 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
+import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -22,6 +25,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: HomeViewModel
     private lateinit var ingredientAdapter: IngredientRowAdapter
     private lateinit var recipeAdapter: RecipeCardAdapter
+    private lateinit var rvRecipes: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
 
         setupAdapters()
+        setupButtons()
         setupSearch()
         setupBottomNav()
         observeState()
@@ -43,10 +48,27 @@ class MainActivity : AppCompatActivity() {
         rvIngredients.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         rvIngredients.adapter = ingredientAdapter
 
-        recipeAdapter = RecipeCardAdapter()
-        val rvRecipes = findViewById<RecyclerView>(R.id.rvRecipes)
-        rvRecipes.layoutManager = LinearLayoutManager(this)
+        recipeAdapter = RecipeCardAdapter { recipe ->
+            val intent = Intent(this, DetalleRecetaActivity::class.java).apply {
+                putExtra("RECIPE_NAME", recipe.title)
+                putExtra("RECIPE_EMOJI", recipe.emoji)
+                putExtra("RECIPE_INSTRUCTIONS", recipe.instructions)
+            }
+            startActivity(intent)
+        }
+        rvRecipes = findViewById(R.id.rvRecipes)
         rvRecipes.adapter = recipeAdapter
+    }
+
+    private fun setupButtons() {
+        findViewById<Button>(R.id.btnViewRecipes).setOnClickListener {
+            val suggestions = viewModel.uiState.value.suggestedRecipes
+            if (suggestions.isEmpty()) {
+                Toast.makeText(this, "Seleccioná ingredientes para ver recetas sugeridas", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            rvRecipes.visibility = if (rvRecipes.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+        }
     }
 
     private fun setupSearch() {
@@ -86,7 +108,9 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             viewModel.uiState.collectLatest { state ->
                 ingredientAdapter.update(state.filteredIngredients, state.selectedIngredientNames)
-                recipeAdapter.update(state.recipes, state.selectedIngredientNames)
+                val suggestions = state.suggestedRecipes
+                recipeAdapter.update(suggestions.map { it.recipe }, state.selectedIngredientNames)
+                if (suggestions.isEmpty()) rvRecipes.visibility = View.GONE
             }
         }
     }

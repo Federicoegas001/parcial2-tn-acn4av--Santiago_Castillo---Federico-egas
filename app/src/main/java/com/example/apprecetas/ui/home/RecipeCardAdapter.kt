@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.apprecetas.R
 import com.example.apprecetas.model.Recipe
 
-class RecipeCardAdapter : RecyclerView.Adapter<RecipeCardAdapter.ViewHolder>() {
+class RecipeCardAdapter(
+    private val onRecipeClick: (Recipe) -> Unit = {}
+) : RecyclerView.Adapter<RecipeCardAdapter.ViewHolder>() {
 
     private var recipes: List<Recipe> = emptyList()
     private var selectedNames: Set<String> = emptySet()
@@ -48,6 +50,8 @@ class RecipeCardAdapter : RecyclerView.Adapter<RecipeCardAdapter.ViewHolder>() {
         } else {
             holder.tvBadge.visibility = View.GONE
         }
+
+        holder.container.setOnClickListener { onRecipeClick(recipe) }
     }
 
     override fun getItemCount() = recipes.size

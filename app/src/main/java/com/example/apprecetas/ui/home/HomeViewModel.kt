@@ -28,20 +28,23 @@ data class HomeUiState(
         }
 
     val suggestedRecipes: List<RecipeSuggestion>
-        get() = recipes
-            .mapNotNull { recipe ->
-                val matchedCount = recipe.ingredientNames.count { it in selectedIngredientNames }
-                if (matchedCount == 0) return@mapNotNull null
-                RecipeSuggestion(
-                    recipe = recipe,
-                    matchedCount = matchedCount,
-                    isFullMatch = matchedCount == recipe.ingredientNames.size
+        get() {
+            if (selectedIngredientNames.isEmpty()) return emptyList()
+            return recipes
+                .mapNotNull { recipe ->
+                    if (!selectedIngredientNames.all { it in recipe.ingredientNames }) return@mapNotNull null
+                    val matchedCount = recipe.ingredientNames.count { it in selectedIngredientNames }
+                    RecipeSuggestion(
+                        recipe = recipe,
+                        matchedCount = matchedCount,
+                        isFullMatch = matchedCount == recipe.ingredientNames.size
+                    )
+                }
+                .sortedWith(
+                    compareByDescending<RecipeSuggestion> { it.isFullMatch }
+                        .thenByDescending { it.matchedCount }
                 )
-            }
-            .sortedWith(
-                compareByDescending<RecipeSuggestion> { it.isFullMatch }
-                    .thenByDescending { it.matchedCount }
-            )
+        }
 }
 
 data class RecipeSuggestion(
@@ -65,18 +68,35 @@ class HomeViewModel : ViewModel() {
                 val uid = authRepository.ensureSignedIn()
                 userId = uid
                 recetasRepository.seedCatalogIfEmpty()
+                recetasRepository.seedUserPantryIfEmpty(uid)
                 val selected = recetasRepository.getSelectedIngredientNames(uid)
                 _uiState.update { it.copy(selectedIngredientNames = selected) }
+            }.onFailure {
+                _uiState.update { it.copy(isLoading = false) }
             }
-        }
-        viewModelScope.launch {
-            recetasRepository.observeIngredients().collect { ingredients ->
-                _uiState.update { it.copy(ingredients = ingredients, isLoading = false) }
+
+            launch {
+                runCatching {
+                    recetasRepository.observeIngredients().collect { ingredients ->
+                        val validNames = ingredients.map { it.name }.toSet()
+                        _uiState.update { state ->
+                            state.copy(
+                                ingredients = ingredients,
+                                isLoading = false,
+                                selectedIngredientNames = state.selectedIngredientNames.filter { it in validNames }.toSet()
+                            )
+                        }
+                    }
+                }.onFailure {
+                    _uiState.update { it.copy(isLoading = false) }
+                }
             }
-        }
-        viewModelScope.launch {
-            recetasRepository.observeRecipes().collect { recipes ->
-                _uiState.update { it.copy(recipes = recipes) }
+            launch {
+                runCatching {
+                    recetasRepository.observeRecipes().collect { recipes ->
+                        _uiState.update { it.copy(recipes = recipes) }
+                    }
+                }
             }
         }
     }

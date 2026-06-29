@@ -8,5 +8,6 @@ data class Recipe(
     val difficulty: String = "",
     val servings: Int = 0,
     val ingredientNames: List<String> = emptyList(),
+    val instructions: String = "",
     val imageUrl: String? = null
 )

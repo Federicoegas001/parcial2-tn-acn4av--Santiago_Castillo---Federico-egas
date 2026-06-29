@@ -14,6 +14,7 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.apprecetas.data.RecetasRepository
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 class RecetasActivity : AppCompatActivity() {
 
@@ -39,14 +40,25 @@ class RecetasActivity : AppCompatActivity() {
                 try {
                     // 1. Forzamos inicio de sesión anónimo si hace falta
                     if (FirebaseAuth.getInstance().currentUser == null) {
-                        FirebaseAuth.getInstance().signInAnonymously()
+                        FirebaseAuth.getInstance().signInAnonymously().await()
                     }
 
                     // 2. Cargamos el catálogo inicial en la nube si está vacío
                     recetasRepository.seedCatalogIfEmpty()
 
-                    // 3. Escuchamos las recetas reales en tiempo real
-                    recetasRepository.observeRecipes().collect { recetas ->
+                    val selectedIngredients = intent.getStringArrayListExtra("SELECTED_INGREDIENTS")
+                        ?.toSet() ?: emptySet()
+
+                    // 3. Escuchamos las recetas reales en tiempo real (auth ya completó)
+                    recetasRepository.observeRecipes().collect { allRecetas ->
+                        val recetas = if (selectedIngredients.isEmpty()) {
+                            allRecetas
+                        } else {
+                            allRecetas.filter { receta ->
+                                receta.ingredientNames.any { it in selectedIngredients }
+                            }
+                        }
+
                         container.removeAllViews()
 
                         val inflater = LayoutInflater.from(this@RecetasActivity)
@@ -83,6 +95,7 @@ class RecetasActivity : AppCompatActivity() {
                                 ).apply {
                                     putExtra("RECIPE_NAME", receta.title)
                                     putExtra("RECIPE_EMOJI", receta.emoji)
+                                    putExtra("RECIPE_INSTRUCTIONS", receta.instructions)
                                 }
                                 startActivity(intent)
                             }

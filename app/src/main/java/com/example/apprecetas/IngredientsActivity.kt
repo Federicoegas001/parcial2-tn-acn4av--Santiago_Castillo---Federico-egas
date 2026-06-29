@@ -75,7 +75,6 @@ class IngredientsActivity : AppCompatActivity() {
 
     private fun setupButtons() {
         findViewById<Button>(R.id.btnBack).setOnClickListener { finish() }
-        findViewById<Button>(R.id.btnAgregar).setOnClickListener { showAddDialog() }
     }
 
     private fun observePantry() {
@@ -124,34 +123,6 @@ class IngredientsActivity : AppCompatActivity() {
         findViewById<TextView>(R.id.tvTotalCount).text = total.toString()
         findViewById<TextView>(R.id.tvLowStockCount).text = lowStock.toString()
         findViewById<TextView>(R.id.tvSubtitle).text = subtitle
-    }
-
-    private fun showAddDialog() {
-        val dialogView = layoutInflater.inflate(R.layout.dialog_add_ingredient, null)
-        val etName = dialogView.findViewById<EditText>(R.id.etIngredientName)
-        val etEmoji = dialogView.findViewById<EditText>(R.id.etIngredientEmoji)
-        val etQty = dialogView.findViewById<EditText>(R.id.etIngredientQty)
-        val spinner = dialogView.findViewById<Spinner>(R.id.spinnerCategory)
-        spinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categoryList())
-
-        AlertDialog.Builder(this)
-            .setTitle(getString(R.string.ing_dialog_title))
-            .setView(dialogView)
-            .setPositiveButton(getString(R.string.ing_dialog_confirm)) { _, _ ->
-                val name = etName.text.toString().trim()
-                if (name.isNotEmpty()) {
-                    viewModel.addItem(PantryItem(
-                        name = name,
-                        emoji = etEmoji.text.toString().trim().ifEmpty { "🥦" },
-                        category = spinner.selectedItem.toString(),
-                        quantity = etQty.text.toString().trim()
-                    ))
-                } else {
-                    Toast.makeText(this, getString(R.string.ing_error_empty_name), Toast.LENGTH_SHORT).show()
-                }
-            }
-            .setNegativeButton(getString(R.string.ing_dialog_cancel), null)
-            .show()
     }
 
     private fun showEditDialog(item: PantryItem) {
