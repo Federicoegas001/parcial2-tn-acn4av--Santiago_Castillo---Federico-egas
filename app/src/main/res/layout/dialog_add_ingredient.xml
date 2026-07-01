@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/ing_surface"
+    android:orientation="vertical"
+    android:padding="@dimen/ing_spacing_md">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Nombre"
+        android:textColor="@color/ing_text_secondary"
+        android:textSize="@dimen/ing_caption_size" />
+
+    <EditText
+        android:id="@+id/etIngredientName"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ing_search_height"
+        android:layout_marginBottom="@dimen/ing_spacing_sm"
+        android:background="@drawable/bg_search_field"
+        android:hint="@string/ing_dialog_name_hint"
+        android:inputType="textCapSentences"
+        android:paddingStart="@dimen/ing_spacing_md"
+        android:paddingEnd="@dimen/ing_spacing_md"
+        android:textColor="@color/ing_text_primary"
+        android:textColorHint="@color/ing_text_secondary" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Emoji"
+        android:textColor="@color/ing_text_secondary"
+        android:textSize="@dimen/ing_caption_size" />
+
+    <EditText
+        android:id="@+id/etIngredientEmoji"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ing_search_height"
+        android:layout_marginBottom="@dimen/ing_spacing_sm"
+        android:background="@drawable/bg_search_field"
+        android:hint="@string/ing_dialog_emoji_hint"
+        android:inputType="text"
+        android:paddingStart="@dimen/ing_spacing_md"
+        android:paddingEnd="@dimen/ing_spacing_md"
+        android:textColor="@color/ing_text_primary"
+        android:textColorHint="@color/ing_text_secondary" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="@string/ing_category_label"
+        android:textColor="@color/ing_text_secondary"
+        android:textSize="@dimen/ing_caption_size" />
+
+    <Spinner
+        android:id="@+id/spinnerCategory"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ing_search_height"
+        android:layout_marginBottom="@dimen/ing_spacing_sm" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Cantidad"
+        android:textColor="@color/ing_text_secondary"
+        android:textSize="@dimen/ing_caption_size" />
+
+    <EditText
+        android:id="@+id/etIngredientQty"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ing_search_height"
+        android:background="@drawable/bg_search_field"
+        android:hint="@string/ing_dialog_qty_hint"
+        android:inputType="text"
+        android:paddingStart="@dimen/ing_spacing_md"
+        android:paddingEnd="@dimen/ing_spacing_md"
+        android:textColor="@color/ing_text_primary"
+        android:textColorHint="@color/ing_text_secondary" />
+
+</LinearLayout>

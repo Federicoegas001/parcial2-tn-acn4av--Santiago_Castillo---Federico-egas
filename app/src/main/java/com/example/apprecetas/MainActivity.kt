@@ -1,47 +1,117 @@
 package com.example.apprecetas
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.apprecetas.ui.theme.AppRecetasTheme
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.apprecetas.ui.home.HomeViewModel
+import com.example.apprecetas.ui.home.IngredientRowAdapter
+import com.example.apprecetas.ui.home.RecipeCardAdapter
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var viewModel: HomeViewModel
+    private lateinit var ingredientAdapter: IngredientRowAdapter
+    private lateinit var recipeAdapter: RecipeCardAdapter
+    private lateinit var rvRecipes: RecyclerView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            AppRecetasTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+        setContentView(R.layout.activity_main)
+
+        viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
+
+        setupAdapters()
+        setupButtons()
+        setupSearch()
+        setupBottomNav()
+        observeState()
+    }
+
+    private fun setupAdapters() {
+        ingredientAdapter = IngredientRowAdapter { ingredient ->
+            viewModel.onIngredientToggle(ingredient.name)
+        }
+        val rvIngredients = findViewById<RecyclerView>(R.id.rvIngredients)
+        rvIngredients.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        rvIngredients.adapter = ingredientAdapter
+
+        recipeAdapter = RecipeCardAdapter { recipe ->
+            val intent = Intent(this, DetalleRecetaActivity::class.java).apply {
+                putExtra("RECIPE_NAME", recipe.title)
+                putExtra("RECIPE_EMOJI", recipe.emoji)
+                putExtra("RECIPE_INSTRUCTIONS", recipe.instructions)
+            }
+            startActivity(intent)
+        }
+        rvRecipes = findViewById(R.id.rvRecipes)
+        rvRecipes.adapter = recipeAdapter
+    }
+
+    private fun setupButtons() {
+        findViewById<Button>(R.id.btnViewRecipes).setOnClickListener {
+            val suggestions = viewModel.uiState.value.suggestedRecipes
+            if (suggestions.isEmpty()) {
+                Toast.makeText(this, "Seleccioná ingredientes para ver recetas sugeridas", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+            rvRecipes.visibility = if (rvRecipes.visibility == View.VISIBLE) View.GONE else View.VISIBLE
+        }
+    }
+
+    private fun setupSearch() {
+        findViewById<EditText>(R.id.etSearch).addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+            override fun afterTextChanged(s: Editable?) {
+                viewModel.onSearchQueryChange(s?.toString() ?: "")
+            }
+        })
+    }
+
+    private fun setupBottomNav() {
+        val bottomNav = findViewById<BottomNavigationView>(R.id.bottomNav)
+        bottomNav.selectedItemId = R.id.nav_home
+        bottomNav.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> true
+                R.id.nav_ingredientes -> {
+                    startActivity(Intent(this, IngredientsActivity::class.java))
+                    false
                 }
+                R.id.nav_recetas -> {
+                    startActivity(Intent(this, RecetasActivity::class.java))
+                    false
+                }
+                R.id.nav_timers -> {
+                    startActivity(Intent(this, TimersActivity::class.java))
+                    false
+                }
+                else -> false
             }
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    AppRecetasTheme {
-        Greeting("Android")
+    private fun observeState() {
+        lifecycleScope.launch {
+            viewModel.uiState.collectLatest { state ->
+                ingredientAdapter.update(state.filteredIngredients, state.selectedIngredientNames)
+                val suggestions = state.suggestedRecipes
+                recipeAdapter.update(suggestions.map { it.recipe }, state.selectedIngredientNames)
+                if (suggestions.isEmpty()) rvRecipes.visibility = View.GONE
+            }
+        }
     }
 }
