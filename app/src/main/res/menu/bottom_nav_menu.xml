@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_nav_home"
+        android:title="@string/nav_home" />
+    <item
+        android:id="@+id/nav_ingredientes"
+        android:icon="@drawable/ic_nav_ingredients"
+        android:title="@string/nav_ingredientes" />
+    <item
+        android:id="@+id/nav_recetas"
+        android:icon="@drawable/ic_nav_recipes"
+        android:title="@string/nav_recetas" />
+    <item
+        android:id="@+id/nav_timers"
+        android:icon="@drawable/ic_nav_timer"
+        android:title="@string/nav_timers" />
+</menu>

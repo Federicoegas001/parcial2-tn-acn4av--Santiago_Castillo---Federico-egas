@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_dark">#FF0E0B16</color>
+
+    <!-- Ingredientes screen palette -->
+    <color name="ing_bg">#0E0B16</color>
+    <color name="ing_surface">#18142A</color>
+    <color name="ing_surface_variant">#221C38</color>
+    <color name="ing_outline">#2E2A45</color>
+    <color name="ing_purple">#8B5CF6</color>
+    <color name="ing_purple_light">#C4B5FD</color>
+    <color name="ing_purple_bg">#2E1065</color>
+    <color name="ing_text_primary">#F5F3FF</color>
+    <color name="ing_text_secondary">#9892AC</color>
+    <color name="ing_low_stock">#F59E0B</color>
+    <color name="ing_low_stock_bg">#451A03</color>
+</resources>

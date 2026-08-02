@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">AppRecetas</string>
+    <string name="logout">Cerrar sesión</string>
+
+    <!-- Autenticación -->
+    <string name="auth_login_title">Iniciar sesión</string>
+    <string name="auth_register_title">Crear cuenta</string>
+    <string name="auth_name_hint">Nombre</string>
+    <string name="auth_email_hint">Correo electrónico</string>
+    <string name="auth_password_hint">Contraseña</string>
+    <string name="auth_login_button">Ingresar</string>
+    <string name="auth_register_button">Registrarme</string>
+    <string name="auth_go_register">¿No tenés cuenta? Registrate</string>
+    <string name="auth_go_login">¿Ya tenés cuenta? Iniciá sesión</string>
+    <string name="auth_empty_fields">Completá todos los campos</string>
+    <string name="auth_invalid_email">Ingresá un correo válido</string>
+    <string name="auth_short_password">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="auth_login_error">No se pudo iniciar sesión. Revisá el correo y la contraseña.</string>
+    <string name="auth_register_error">No se pudo crear la cuenta. Intentá nuevamente.</string>
+    <string name="auth_login_error_detail">No se pudo iniciar sesión: %1$s</string>
+    <string name="auth_register_error_detail">No se pudo crear la cuenta: %1$s</string>
+
+    <!-- Ingredientes -->
+    <string name="ing_title">Mis ingredientes</string>
+    <string name="ing_subtitle">%d productos en despensa</string>
+    <string name="ing_btn_add">+ Agregar</string>
+    <string name="ing_btn_back">← Volver</string>
+    <string name="ing_search_hint">Buscar ingrediente…</string>
+    <string name="ing_filter_all">Todos</string>
+    <string name="ing_filter_dairy">Lácteos</string>
+    <string name="ing_filter_veggies">Verduras</string>
+    <string name="ing_filter_meats">Carnes</string>
+    <string name="ing_filter_proteins">Proteínas</string>
+    <string name="ing_stat_total">Ingredientes totales</string>
+    <string name="ing_stat_low">Stock bajo</string>
+    <string name="ing_dialog_title">Agregar ingrediente</string>
+    <string name="ing_dialog_name_hint">Nombre (ej: Queso cremoso)</string>
+    <string name="ing_dialog_emoji_hint">Emoji (ej: 🧀)</string>
+    <string name="ing_dialog_qty_hint">Cantidad (ej: 2 unid.) — vacío = stock bajo</string>
+    <string name="ing_dialog_confirm">Agregar</string>
+    <string name="ing_dialog_cancel">Cancelar</string>
+    <string name="ing_category_label">Categoría</string>
+    <string name="ing_error_empty_name">El nombre no puede estar vacío</string>
+    <string name="ing_error_add">Error al agregar el ingrediente</string>
+
+    <!-- Home screen -->
+    <string name="home_greeting">Hola, %s 👋</string>
+    <string name="home_title">¿Qué cocino hoy?</string>
+    <string name="home_subtitle">Seleccioná los ingredientes que tenés</string>
+    <string name="home_search_hint">Buscar ingrediente…</string>
+    <string name="home_section_ingredients">MIS INGREDIENTES</string>
+    <string name="home_view_recipes">Ver recetas (%d ingredientes)</string>
+    <string name="home_section_recipes">RECETAS SUGERIDAS</string>
+    <string name="home_full_match">✓ Coincidencia total</string>
+    <string name="home_recipe_uses">Usa: %s</string>
+    <string name="home_recipe_time">%d min</string>
+    <string name="home_recipe_servings">%d porciones</string>
+
+    <!-- Recetas placeholder -->
+    <string name="recetas_title">Recetas</string>
+    <string name="recetas_coming_soon">Próximamente…</string>
+
+    <!-- Bottom navigation -->
+    <string name="nav_home">Inicio</string>
+    <string name="nav_ingredientes">Ingredientes</string>
+    <string name="nav_recetas">Recetas</string>
+    <string name="nav_timers">Timers</string>
+
+    <!-- Common -->
+    <string name="back">← Volver</string>
+
+    <!-- Pantry item menu -->
+    <string name="menu_edit">Editar ingrediente</string>
+    <string name="menu_update_qty">Actualizar cantidad</string>
+    <string name="menu_delete">Eliminar</string>
+    <string name="ing_dialog_edit_title">Editar ingrediente</string>
+    <string name="ing_dialog_qty_title">Actualizar cantidad</string>
+</resources>
