@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0E0B16">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="56dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="16dp">
+
+            <!-- Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                android:paddingTop="48dp"
+                android:paddingBottom="8dp"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvGreeting"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_title"
+                        android:textColor="#F5F3FF"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvSubtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/home_subtitle"
+                        android:textColor="#9892AC"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/btnLogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#3B334F"
+                    android:minHeight="0dp"
+                    android:text="@string/logout"
+                    android:textAllCaps="false"
+                    android:textColor="#F5F3FF"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <!-- Search -->
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_search_field"
+                android:hint="@string/home_search_hint"
+                android:inputType="text"
+                android:paddingHorizontal="16dp"
+                android:textColor="#F5F3FF"
+                android:textColorHint="#9892AC"
+                android:textSize="14sp" />
+
+            <!-- Ingredients section -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="4dp"
+                android:text="@string/home_section_ingredients"
+                android:textColor="#9892AC"
+                android:textSize="11sp"
+                android:letterSpacing="0.1" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvIngredients"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:nestedScrollingEnabled="false"
+                android:orientation="horizontal"
+                android:paddingHorizontal="16dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+            <!-- Recipes CTA -->
+            <Button
+                android:id="@+id/btnViewRecipes"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#8B5CF6"
+                android:text="@string/home_section_recipes"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRecipes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginHorizontal="16dp"
+                android:nestedScrollingEnabled="false"
+                android:visibility="gone"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
+        android:background="#18142A"
+        app:itemIconTint="@color/bottom_nav_colors"
+        app:itemTextColor="@color/bottom_nav_colors"
+        app:menu="@menu/bottom_nav_menu" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

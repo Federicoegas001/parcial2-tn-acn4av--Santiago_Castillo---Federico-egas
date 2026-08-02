@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/ing_spacing_md"
+    android:layout_marginEnd="@dimen/ing_spacing_md"
+    android:layout_marginBottom="@dimen/ing_spacing_xs"
+    android:background="@drawable/bg_ingredient_item"
+    android:minHeight="@dimen/ing_item_min_height"
+    android:paddingStart="@dimen/ing_spacing_md"
+    android:paddingEnd="@dimen/ing_spacing_md"
+    android:paddingTop="12dp"
+    android:paddingBottom="12dp">
+
+    <!-- Emoji del ingrediente -->
+    <TextView
+        android:id="@+id/tvIngredientEmoji"
+        android:layout_width="@dimen/ing_emoji_box_size"
+        android:layout_height="@dimen/ing_emoji_box_size"
+        android:background="@drawable/bg_emoji_box"
+        android:gravity="center"
+        android:textSize="@dimen/ing_emoji_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Nombre y categoría -->
+    <LinearLayout
+        android:id="@+id/nameLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvQuantity"
+        app:layout_constraintStart_toEndOf="@id/tvIngredientEmoji"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tvIngredientName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ing_text_primary"
+            android:textSize="@dimen/ing_body_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvIngredientCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ing_text_secondary"
+            android:textSize="@dimen/ing_caption_size" />
+    </LinearLayout>
+
+    <!-- Badge de cantidad -->
+    <TextView
+        android:id="@+id/tvQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/ing_spacing_sm"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp"
+        android:textSize="@dimen/ing_caption_size"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tvMenu"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Menú de tres puntos -->
+    <TextView
+        android:id="@+id/tvMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/ing_spacing_xs"
+        android:text="⋮"
+        android:textColor="@color/ing_text_secondary"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_dark">#FF0E0B16</color>
+    <color name="ing_bg">#0E0B16</color>
+    <color name="ing_low_stock">#F59E0B</color>
+    <color name="ing_low_stock_bg">#451A03</color>
+    <color name="ing_outline">#2E2A45</color>
+    <color name="ing_purple">#8B5CF6</color>
+    <color name="ing_purple_bg">#2E1065</color>
+    <color name="ing_purple_light">#C4B5FD</color>
+    <color name="ing_surface">#18142A</color>
+    <color name="ing_surface_variant">#221C38</color>
+    <color name="ing_text_primary">#F5F3FF</color>
+    <color name="ing_text_secondary">#9892AC</color>
+    <dimen name="ing_badge_corner_radius">20dp</dimen>
+    <dimen name="ing_body_size">15sp</dimen>
+    <dimen name="ing_caption_size">12sp</dimen>
+    <dimen name="ing_corner_radius">12dp</dimen>
+    <dimen name="ing_emoji_box_size">40dp</dimen>
+    <dimen name="ing_emoji_size">20sp</dimen>
+    <dimen name="ing_item_min_height">68dp</dimen>
+    <dimen name="ing_search_height">48dp</dimen>
+    <dimen name="ing_spacing_lg">24dp</dimen>
+    <dimen name="ing_spacing_md">16dp</dimen>
+    <dimen name="ing_spacing_sm">8dp</dimen>
+    <dimen name="ing_spacing_xs">4dp</dimen>
+    <dimen name="ing_stat_number_size">24sp</dimen>
+    <dimen name="ing_subtitle_size">13sp</dimen>
+    <dimen name="ing_title_size">26sp</dimen>
+    <string name="app_name">AppRecetas</string>
+    <string name="auth_email_hint">Correo electrónico</string>
+    <string name="auth_empty_fields">Completá todos los campos</string>
+    <string name="auth_go_login">¿Ya tenés cuenta? Iniciá sesión</string>
+    <string name="auth_go_register">¿No tenés cuenta? Registrate</string>
+    <string name="auth_invalid_email">Ingresá un correo válido</string>
+    <string name="auth_login_button">Ingresar</string>
+    <string name="auth_login_error">No se pudo iniciar sesión. Revisá el correo y la contraseña.</string>
+    <string name="auth_login_error_detail">No se pudo iniciar sesión: %1$s</string>
+    <string name="auth_login_title">Iniciar sesión</string>
+    <string name="auth_name_hint">Nombre</string>
+    <string name="auth_password_hint">Contraseña</string>
+    <string name="auth_register_button">Registrarme</string>
+    <string name="auth_register_error">No se pudo crear la cuenta. Intentá nuevamente.</string>
+    <string name="auth_register_error_detail">No se pudo crear la cuenta: %1$s</string>
+    <string name="auth_register_title">Crear cuenta</string>
+    <string name="auth_short_password">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="back">← Volver</string>
+    <string name="gcm_defaultSenderId" translatable="false">17466531465</string>
+    <string name="google_api_key" translatable="false">AIzaSyArRE9oItn8e0h3G3JUhV44KR22FAp_NK0</string>
+    <string name="google_app_id" translatable="false">1:17466531465:android:df3fc18ee7573c6f1ff058</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyArRE9oItn8e0h3G3JUhV44KR22FAp_NK0</string>
+    <string name="google_storage_bucket" translatable="false">apprecetas-3f0b7-c2feb.firebasestorage.app</string>
+    <string name="home_full_match">✓ Coincidencia total</string>
+    <string name="home_greeting">Hola, %s 👋</string>
+    <string name="home_recipe_servings">%d porciones</string>
+    <string name="home_recipe_time">%d min</string>
+    <string name="home_recipe_uses">Usa: %s</string>
+    <string name="home_search_hint">Buscar ingrediente…</string>
+    <string name="home_section_ingredients">MIS INGREDIENTES</string>
+    <string name="home_section_recipes">RECETAS SUGERIDAS</string>
+    <string name="home_subtitle">Seleccioná los ingredientes que tenés</string>
+    <string name="home_title">¿Qué cocino hoy?</string>
+    <string name="home_view_recipes">Ver recetas (%d ingredientes)</string>
+    <string name="ing_btn_add">+ Agregar</string>
+    <string name="ing_btn_back">← Volver</string>
+    <string name="ing_category_label">Categoría</string>
+    <string name="ing_dialog_cancel">Cancelar</string>
+    <string name="ing_dialog_confirm">Agregar</string>
+    <string name="ing_dialog_edit_title">Editar ingrediente</string>
+    <string name="ing_dialog_emoji_hint">Emoji (ej: 🧀)</string>
+    <string name="ing_dialog_name_hint">Nombre (ej: Queso cremoso)</string>
+    <string name="ing_dialog_qty_hint">Cantidad (ej: 2 unid.) — vacío = stock bajo</string>
+    <string name="ing_dialog_qty_title">Actualizar cantidad</string>
+    <string name="ing_dialog_title">Agregar ingrediente</string>
+    <string name="ing_error_add">Error al agregar el ingrediente</string>
+    <string name="ing_error_empty_name">El nombre no puede estar vacío</string>
+    <string name="ing_filter_all">Todos</string>
+    <string name="ing_filter_dairy">Lácteos</string>
+    <string name="ing_filter_meats">Carnes</string>
+    <string name="ing_filter_proteins">Proteínas</string>
+    <string name="ing_filter_veggies">Verduras</string>
+    <string name="ing_search_hint">Buscar ingrediente…</string>
+    <string name="ing_stat_low">Stock bajo</string>
+    <string name="ing_stat_total">Ingredientes totales</string>
+    <string name="ing_subtitle">%d productos en despensa</string>
+    <string name="ing_title">Mis ingredientes</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="menu_delete">Eliminar</string>
+    <string name="menu_edit">Editar ingrediente</string>
+    <string name="menu_update_qty">Actualizar cantidad</string>
+    <string name="nav_home">Inicio</string>
+    <string name="nav_ingredientes">Ingredientes</string>
+    <string name="nav_recetas">Recetas</string>
+    <string name="nav_timers">Timers</string>
+    <string name="project_id" translatable="false">apprecetas-3f0b7-c2feb</string>
+    <string name="recetas_coming_soon">Próximamente…</string>
+    <string name="recetas_title">Recetas</string>
+    <style name="Theme.AppRecetas" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/background_dark</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="colorPrimary">#8B5CF6</item>
+        <item name="colorPrimaryVariant">#6D28D9</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorSecondary">#8B5CF6</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSurface">#18142A</item>
+        <item name="colorOnSurface">#F5F3FF</item>
+        <item name="android:colorBackground">@color/background_dark</item>
+    </style>
+    <style name="Theme.AppRecetas.Ingredients" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@color/background_dark</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+</resources>

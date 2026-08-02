@@ -1,0 +1,206 @@
+[
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_bg_search_field.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/bg_search_field.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_bg_badge_yellow.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/bg_badge_yellow.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.apprecetas.app-main-49:/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_bg_recipe_card_matched.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/bg_recipe_card_matched.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/layout_activity_detalle_receta.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/layout/activity_detalle_receta.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/xml_backup_rules.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/color_bottom_nav_colors.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/color/bottom_nav_colors.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "com.example.apprecetas.app-main-49:/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_bg_emoji_box.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/bg_emoji_box.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_bg_ingredient_item.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/bg_ingredient_item.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_bg_badge_purple.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/bg_badge_purple.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_ic_nav_home.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/ic_nav_home.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/menu_bottom_nav_menu.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/menu/bottom_nav_menu.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.apprecetas.app-main-49:/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/layout_item_timer.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/layout/item_timer.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/layout_dialog_add_ingredient.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/layout/dialog_add_ingredient.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/color_chip_background_selector.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/color/chip_background_selector.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/layout_activity_register.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/layout/activity_register.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/xml_data_extraction_rules.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.apprecetas.app-main-49:/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/layout_item_recipe_card.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/layout/item_recipe_card.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/color_chip_text_selector.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/color/chip_text_selector.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_bg_stats_card.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/bg_stats_card.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.apprecetas.app-main-49:/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "com.example.apprecetas.app-main-49:/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/layout_activity_main.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "com.example.apprecetas.app-main-49:/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_bg_checkbox_unselected.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/bg_checkbox_unselected.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/layout_item_receta.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/layout/item_receta.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_ic_nav_recipes.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/ic_nav_recipes.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/layout_activity_ingredients.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/layout/activity_ingredients.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_ic_nav_ingredients.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/ic_nav_ingredients.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/layout_activity_timers.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/layout/activity_timers.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "com.example.apprecetas.app-main-49:/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/layout_item_ingredient_row.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/layout/item_ingredient_row.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_bg_avatar.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/bg_avatar.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_bg_recipe_card.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/bg_recipe_card.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.apprecetas.app-main-49:/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_bg_ingredient_row_selected.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/bg_ingredient_row_selected.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/layout_activity_recetas.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/layout/activity_recetas.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/layout_item_ingredient.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/layout/item_ingredient.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/layout_item_category_header.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/layout/item_category_header.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_bg_checkbox_selected.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/bg_checkbox_selected.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/layout_activity_login.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/layout/activity_login.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "com.example.apprecetas.app-main-49:/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_ic_nav_timer.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/ic_nav_timer.xml"
+    },
+    {
+        "merged": "com.example.apprecetas.app-debug-47:/drawable_bg_ingredient_row.xml.flat",
+        "source": "com.example.apprecetas.app-main-49:/drawable/bg_ingredient_row.xml"
+    }
+]
