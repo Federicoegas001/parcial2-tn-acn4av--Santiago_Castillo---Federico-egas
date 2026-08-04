@@ -51,7 +51,7 @@ class RegisterActivity : AppCompatActivity() {
                     is AuthResult.Error -> {
                         Toast.makeText(
                             this@RegisterActivity,
-                            getString(R.string.auth_register_error_detail, result.cause.localizedMessage ?: result.cause.javaClass.simpleName),
+                            authErrorMessageRes(result.cause, R.string.auth_register_error),
                             Toast.LENGTH_LONG
                         ).show()
                         viewModel.reset()

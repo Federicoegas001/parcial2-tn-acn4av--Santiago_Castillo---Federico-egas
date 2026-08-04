@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="gcm_defaultSenderId" translatable="false">17466531465</string>
-    <string name="google_api_key" translatable="false">AIzaSyArRE9oItn8e0h3G3JUhV44KR22FAp_NK0</string>
-    <string name="google_app_id" translatable="false">1:17466531465:android:df3fc18ee7573c6f1ff058</string>
-    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyArRE9oItn8e0h3G3JUhV44KR22FAp_NK0</string>
-    <string name="google_storage_bucket" translatable="false">apprecetas-3f0b7-c2feb.firebasestorage.app</string>
-    <string name="project_id" translatable="false">apprecetas-3f0b7-c2feb</string>
-</resources>

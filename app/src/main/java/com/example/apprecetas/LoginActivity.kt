@@ -52,7 +52,7 @@ class LoginActivity : AppCompatActivity() {
                     is AuthResult.Error -> {
                         Toast.makeText(
                             this@LoginActivity,
-                            getString(R.string.auth_login_error_detail, result.cause.localizedMessage ?: result.cause.javaClass.simpleName),
+                            authErrorMessageRes(result.cause, R.string.auth_login_error),
                             Toast.LENGTH_LONG
                         ).show()
                         viewModel.reset()
