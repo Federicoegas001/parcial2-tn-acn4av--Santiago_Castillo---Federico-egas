@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -16,6 +17,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.apprecetas.ui.home.HomeViewModel
 import com.example.apprecetas.ui.home.IngredientRowAdapter
 import com.example.apprecetas.ui.home.RecipeCardAdapter
+import com.google.firebase.auth.FirebaseAuth
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -29,6 +31,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        if (FirebaseAuth.getInstance().currentUser == null) {
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+            return
+        }
         setContentView(R.layout.activity_main)
 
         viewModel = ViewModelProvider(this)[HomeViewModel::class.java]
@@ -69,6 +76,11 @@ class MainActivity : AppCompatActivity() {
             }
             rvRecipes.visibility = if (rvRecipes.visibility == View.VISIBLE) View.GONE else View.VISIBLE
         }
+        findViewById<Button>(R.id.btnLogout).setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            startActivity(Intent(this, LoginActivity::class.java))
+            finish()
+        }
     }
 
     private fun setupSearch() {
@@ -107,6 +119,7 @@ class MainActivity : AppCompatActivity() {
     private fun observeState() {
         lifecycleScope.launch {
             viewModel.uiState.collectLatest { state ->
+                findViewById<TextView>(R.id.tvGreeting).text = getString(R.string.home_greeting, state.userName)
                 ingredientAdapter.update(state.filteredIngredients, state.selectedIngredientNames)
                 val suggestions = state.suggestedRecipes
                 recipeAdapter.update(suggestions.map { it.recipe }, state.selectedIngredientNames)

@@ -17,4 +17,9 @@
     <dimen name="ing_emoji_box_size">40dp</dimen>
     <dimen name="ing_search_height">48dp</dimen>
     <dimen name="ing_item_min_height">68dp</dimen>
+
+    <!-- Overrides Material's default bottom navigation spacing: stock values (8dp / 10dp)
+         leave the icon and label touching. -->
+    <dimen name="design_bottom_navigation_margin">18dp</dimen>
+    <dimen name="design_bottom_navigation_label_padding">20dp</dimen>
 </resources>

@@ -1,10 +1,16 @@
-*.iml
-.gradle
-/local.properties
-/.idea/
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# Gradle
+.gradle/
+build/
+/captures/
+.cxx/
+*.apk
+
+# Local configuration
 local.properties
+
+# IDE
+.idea/
+*.iml
+
+# OS
+.DS_Store

@@ -28,7 +28,7 @@ class IngredientsViewModel : ViewModel() {
     init {
         viewModelScope.launch {
             runCatching {
-                _userId.value = authRepository.ensureSignedIn()
+                _userId.value = authRepository.currentUserId()
             }
         }
     }

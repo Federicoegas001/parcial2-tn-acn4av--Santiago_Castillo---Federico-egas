@@ -1,5 +1,26 @@
 <resources>
     <string name="app_name">AppRecetas</string>
+    <string name="logout">Cerrar sesión</string>
+
+    <!-- Autenticación -->
+    <string name="auth_login_title">Iniciar sesión</string>
+    <string name="auth_register_title">Crear cuenta</string>
+    <string name="auth_name_hint">Nombre</string>
+    <string name="auth_email_hint">Correo electrónico</string>
+    <string name="auth_password_hint">Contraseña</string>
+    <string name="auth_login_button">Ingresar</string>
+    <string name="auth_register_button">Registrarme</string>
+    <string name="auth_go_register">¿No tenés cuenta? Registrate</string>
+    <string name="auth_go_login">¿Ya tenés cuenta? Iniciá sesión</string>
+    <string name="auth_empty_fields">Completá todos los campos</string>
+    <string name="auth_invalid_email">Ingresá un correo válido</string>
+    <string name="auth_short_password">La contraseña debe tener al menos 6 caracteres</string>
+    <string name="auth_login_error">No se pudo iniciar sesión. Revisá el correo y la contraseña.</string>
+    <string name="auth_register_error">No se pudo crear la cuenta. Intentá nuevamente.</string>
+    <string name="auth_wrong_credentials">Correo o contraseña incorrectos</string>
+    <string name="auth_email_in_use">Ese correo ya está registrado</string>
+    <string name="auth_network_error">Sin conexión. Revisá tu internet e intentá de nuevo</string>
+    <string name="auth_too_many_requests">Demasiados intentos. Esperá unos minutos e intentá de nuevo</string>
 
     <!-- Ingredientes -->
     <string name="ing_title">Mis ingredientes</string>

@@ -13,7 +13,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 data class HomeUiState(
-    val userName: String = "Federico",
+    val userName: String = "",
     val searchQuery: String = "",
     val ingredients: List<Ingredient> = emptyList(),
     val selectedIngredientNames: Set<String> = emptySet(),
@@ -65,12 +65,15 @@ class HomeViewModel : ViewModel() {
     init {
         viewModelScope.launch {
             runCatching {
-                val uid = authRepository.ensureSignedIn()
+                val uid = authRepository.currentUserId() ?: error("No hay una sesión iniciada")
                 userId = uid
+                val profile = authRepository.getUserProfile(uid)
                 recetasRepository.seedCatalogIfEmpty()
                 recetasRepository.seedUserPantryIfEmpty(uid)
                 val selected = recetasRepository.getSelectedIngredientNames(uid)
-                _uiState.update { it.copy(selectedIngredientNames = selected) }
+                _uiState.update {
+                    it.copy(userName = profile.nombre, selectedIngredientNames = selected)
+                }
             }.onFailure {
                 _uiState.update { it.copy(isLoading = false) }
             }

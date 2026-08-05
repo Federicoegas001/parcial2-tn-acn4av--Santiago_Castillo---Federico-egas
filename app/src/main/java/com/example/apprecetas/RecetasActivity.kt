@@ -14,7 +14,6 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.apprecetas.data.RecetasRepository
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
 
 class RecetasActivity : AppCompatActivity() {
 
@@ -40,7 +39,9 @@ class RecetasActivity : AppCompatActivity() {
                 try {
                     // 1. Forzamos inicio de sesión anónimo si hace falta
                     if (FirebaseAuth.getInstance().currentUser == null) {
-                        FirebaseAuth.getInstance().signInAnonymously().await()
+                        startActivity(Intent(this@RecetasActivity, LoginActivity::class.java))
+                        finish()
+                        return@repeatOnLifecycle
                     }
 
                     // 2. Cargamos el catálogo inicial en la nube si está vacío
