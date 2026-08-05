@@ -17,8 +17,10 @@
     <string name="auth_short_password">La contraseña debe tener al menos 6 caracteres</string>
     <string name="auth_login_error">No se pudo iniciar sesión. Revisá el correo y la contraseña.</string>
     <string name="auth_register_error">No se pudo crear la cuenta. Intentá nuevamente.</string>
-    <string name="auth_login_error_detail">No se pudo iniciar sesión: %1$s</string>
-    <string name="auth_register_error_detail">No se pudo crear la cuenta: %1$s</string>
+    <string name="auth_wrong_credentials">Correo o contraseña incorrectos</string>
+    <string name="auth_email_in_use">Ese correo ya está registrado</string>
+    <string name="auth_network_error">Sin conexión. Revisá tu internet e intentá de nuevo</string>
+    <string name="auth_too_many_requests">Demasiados intentos. Esperá unos minutos e intentá de nuevo</string>
 
     <!-- Ingredientes -->
     <string name="ing_title">Mis ingredientes</string>

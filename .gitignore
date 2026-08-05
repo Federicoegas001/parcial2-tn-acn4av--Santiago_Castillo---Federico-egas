@@ -1,16 +1,16 @@
 # Gradle
-  .gradle/
-  build/
-  /captures/
-  .cxx/
-  *.apk
+.gradle/
+build/
+/captures/
+.cxx/
+*.apk
 
-  # Local configuration
-  local.properties
+# Local configuration
+local.properties
 
-  # IDE
-  .idea/
-  *.iml
+# IDE
+.idea/
+*.iml
 
-  # OS
-  .DS_Store
+# OS
+.DS_Store

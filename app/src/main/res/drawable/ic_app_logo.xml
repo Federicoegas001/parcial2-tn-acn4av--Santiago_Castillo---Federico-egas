@@ -5,6 +5,17 @@
     android:viewportWidth="108"
     android:viewportHeight="108">
 
+    <!-- rounded-square badge background -->
+    <path android:pathData="M0,28 C0,12.5 12.5,0 28,0 L80,0 C95.5,0 108,12.5 108,28 L108,80 C108,95.5 95.5,108 80,108 L28,108 C12.5,108 0,95.5 0,80 Z">
+        <aapt:attr xmlns:aapt="http://schemas.android.com/aapt" name="android:fillColor">
+            <gradient
+                android:angle="135"
+                android:startColor="#2E1065"
+                android:endColor="#0E0B16"
+                android:type="linear" />
+        </aapt:attr>
+    </path>
+
     <!-- steam -->
     <path
         android:pathData="M42,42 C38,36 46,32 42,26"
